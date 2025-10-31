@@ -84,12 +84,12 @@
     - Click `Add additional tags`
       - Tag 1: Name: `Name`, Value: `Dev-Env`
       - Tag 2: Name: `Environment`, Value: `dev`
-    - AMI: `Amazon Linux 2`
+    - AMI: AMI: `Ubuntu 24.04`
     - Number: `1`
     - Instance type: `t2.micro`
     - Key pair: `Select a keypair`
     - Security Group (Eit/Open): `8080, 9100, 9997` and `22 to 0.0.0.0/0`
-    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/tomcat-splunk-installation/tomcat-ssh-configure.sh
+    - User data (Copy the following user data): https://github.com/tdolivierth7/tomcat-install-sh/blob/main/tomcat-ssh-configure.sh
     - Launch Instance
 
 7) EC2 (Stage Environment)
@@ -97,12 +97,12 @@
     - Click `Add additional tags`
       - Tag 1: Name: `Name`, Value: `Stage-Env`
       - Tag 2: Name: `Environment`, Value: `stage`
-    - AMI: `Amazon Linux 2`
+    - AMI: AMI: `Ubuntu 24.04`
     - Number: `1`
     - Instance type: `t2.micro`
     - Key pair: `Select a keypair`
     - Security Group (Eit/Open): `8080, 9100, 9997` and `22 to 0.0.0.0/0`
-    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/tomcat-splunk-installation/tomcat-ssh-configure.sh
+    - User data (Copy the following user data): https://github.com/tdolivierth7/tomcat-install-sh/blob/main/tomcat-ssh-configure.sh
     - Launch Instance
 
 8) EC2 (Prod Environment)
@@ -110,12 +110,12 @@
     - Click `Add additional tags`
       - Tag 1: Name: `Name`, Value: `Prod-Env`
       - Tag 2: Name: `Environment`, Value: `prod`
-    - AMI: `Amazon Linux 2`
+    - AMI: AMI: `Ubuntu 24.04`
     - Number: `1`
     - Instance type: `t2.micro`
     - Key pair: `Select a keypair`
     - Security Group (Eit/Open): `8080, 9100, 9997` and `22 to 0.0.0.0/0`
-    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/tomcat-splunk-installation/tomcat-ssh-configure.sh
+    - User data (Copy the following user data): https://github.com/tdolivierth7/tomcat-install-sh/blob/main/tomcat-ssh-configure.sh
     - Launch Instance
 
 9) Prometheus
@@ -144,6 +144,7 @@
     - Instance type: `t2.large`
     - Key pair: `Select a keypair`
     - Security Group (Eit/Open): `22, 8000, 9997, 9100` to `0.0.0.0/0`
+    - Set the size of the EBS Volume to 20 GiB
     - Launch Instance
 
 #### NOTE: Confirm and make sure you have a total of 9 VM instances
@@ -201,7 +202,8 @@
 ### Configure The "Node Exporter" on the "Dev", "Stage" and "Prod" instances including your "Pipeline Infra"
   - Login/SSH into the "Dev-Env", "Stage-Env" and "Prod-Env" VM instance
   - Perform the following operations on all of them
-  - Install git by running: `sudo yum install git -y `
+  - Install git by running: `sudo apt install git -y `
+            ### - Install git by running: `sudo yum install git -y ` ### 
   - Clone repository: `git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git`
   - Change directory: `cd realworld-cicd-pipeline-project`
   - Swtitch branch: `git switch prometheus-and-grafana-install`
@@ -218,8 +220,9 @@
   - Login/SSH into the `"Jenkins-Maven-Ansible"`, `"Nexus"` and `"SonarQube"` VM instance
   - Perform the following operations on all of them
   - Install git: 
-    - Jenkins/Maven/Ansible and Nexus VMs: `sudo yum install git -y`   
-    - SonarQube VM: `sudo apt install git -y`
+  - Install git by running: `sudo apt install git -y `
+            ### - Install git by running: `sudo yum install git -y ` ### 
+            ### - SonarQube VM: `sudo apt install git -y`
   - Clone repository: `git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git`
   - Change directory: `cd realworld-cicd-pipeline-project`
   - Swtitch branch: `git switch prometheus-and-grafana-install`
@@ -341,7 +344,8 @@ cd /opt/splunkforwarder/bin
 
 - Set the forwarder to forward to the splunk server on port ``9997``, and will need to enter username and password (change IP address with your own server IP address). When prompted for username and password, enter what you set above for username and password.
 ```
-./splunk add forward-server SPLUNK-SERVER-Public-IP-Address:9997
+./splunk add forward-server SPLUNK-SERVER-Private-IP-Address:9997
+## ./splunk add forward-server SPLUNK-SERVER-Public-IP-Address:9997 ##
 ```
 
 - Restart Splunk on the VM you are configuring the Forwarder
@@ -349,9 +353,9 @@ cd /opt/splunkforwarder/bin
 ./splunk restart
 ```
 
-- Set the forwarder to monitor the ``/var/log/tomcat/`` directory and restart
+- Set the forwarder to monitor the ``/opt/tomcat/logs/`` directory and restart
 ```
-./splunk add monitor /var/log/tomcat/
+./splunk add monitor /opt/tomcat/logs/
 ```
 
 ### 2. Navigate Back to Your `Splunk Indexer/Server` 
