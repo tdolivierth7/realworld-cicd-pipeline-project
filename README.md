@@ -325,12 +325,13 @@
 
 - Download the Splunk forwarder RPM installer package 
 ```bash
-wget -O splunkforwarder-9.1.1-64e843ea36b1.x86_64.rpm "https://download.splunk.com/products/universalforwarder/releases/9.1.1/linux/splunkforwarder-9.1.1-64e843ea36b1.x86_64.rpm"
+wget -O splunkforwarder-9.2.1-78803f08aabb-linux-2.6-amd64.deb "https://download.splunk.com/products/universalforwarder/releases/9.2.1/linux/splunkforwarder-9.2.1-78803f08aabb-linux-2.6-amd64.deb"
 ```
 - Install the Forwarder
 ```bash
 ls -al
-sudo yum install ./splunkforwarder-9.1.1-64e843ea36b1.x86_64.rpm -y
+sudo bash
+sudo apt-get install ./splunkforwarder-9.2.1-78803f08aabb-linux-2.6-amd64.deb -y
 ```
 
 - Change to the `splunkforwarder bin` directory and start the forwarder
