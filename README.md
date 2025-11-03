@@ -334,6 +334,8 @@ ls -al
 sudo bash
 sudo apt-get install ./splunkforwarder-9.2.1-78803f08aabb-linux-2.6-amd64.deb -y
 ```
+     # Ignore Message Below: 
+     Download is performed unsandboxed as root as file '/home/ubuntu/realworld-cicd-pipeline-project/splunkforwarder-9.2.1-78803f08aabb-linux-2.6-amd64.deb' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)
 
 - Change to the `splunkforwarder bin` directory and start the forwarder
 - NOTE: `The Password` must be at least `8` characters long.
@@ -548,7 +550,8 @@ cd /opt/splunk/bin
             - Workspace: **Replace with `Team Subdomain` value** (created above)
             - Credentials: select the `Slack-Token` credentials (created above) 
             - Default channel / member id: `#PROVIDE_YOUR_CHANNEL_NAME_HERE`
-            - Click on `Test Connection`
+                Example: For Channel name 'cicd-project-alerts' add: #cicd-project-alerts
+            - Click on `Test Connection`. Ensure Test is Successful.
             - Click on `Save`
         ![SlackSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.31.12%20AM.png)
 
@@ -560,7 +563,11 @@ cd /opt/splunk/bin
     ![SonarQubeSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/dsdsdsdsdsdsds.png)
     - Click on `Save` to Create
     ![SonarQubeSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.00.25%20AM.png)
-    - Add a Quality Gate Condition to Validate the Code Against (Code Smells or Bugs)
+    - Add a Quality Gate Condition to Validate the Code Against (Code Smells or Bugs).
+        Click on 'Add Condition'.
+        Select 'On Overall Code'.
+        In the box 'Quality Gate fails when', under the section 'Maintainability' select 'Code Smells'.
+        Operator (Is greater than) - Value: 10
     ![SonarQubeSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.02.36%20AM.png)
     
     - Add Quality to SonarQube Project
