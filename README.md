@@ -615,8 +615,21 @@ cd /opt/splunk/bin
     - Select the category as **`Pipeline`**
     - Click `OK`
     - Select GitHub project: Project url `Provide Your Project Repo Git URL`
-    - GitHub hook trigger for GITScm polling: `Check the box` 
-      - NOTE: Make sure to also configure it on GitHub's side
+        Example: https://github.com/tdolivierth7/realworld-cicd-pipeline-project.git
+    - Under `Triggers` Select the box: `GitHub hook trigger for GITScm polling`
+      - NOTE: Make sure to also configure it on GitHub's side.
+        You can find the Steps to add the Jenkins Webhook to GitHub below:
+
+            Adding jenkins webhook to github:
+            Go to your GitHub Repository: 
+                https://github.com/tdolivierth7/realworld-cicd-pipeline-project
+            Go to Settings --> Webhooks --> Click on Add webhook
+            Type your GitHub Password.
+            Payload URL: 
+                http://REPLACE-JENKINS-SERVER-PUBLIC-IP:8080/github-webhook/ 
+                (Note: The IP should be public as GitHub is outside of the AWS VPC where Jenkins server is hosted)
+            Click on Add webhook
+
     - Pipeline Definition: Select `Pipeline script from SCM`
       - SCM: `Git`
       - Repositories
