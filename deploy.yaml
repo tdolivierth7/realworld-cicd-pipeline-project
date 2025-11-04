@@ -2,7 +2,8 @@
   hosts: "{{ target_hosts }}"
   vars:
     src_path: "{{ workspace_path }}/webapp/target/webapp.war"
-    dest_path: "/var/lib/tomcat/webapps"
+    dest_path: "/opt/tomcat/webapps"
+    # dest_path: "/var/lib/tomcat/webapps"
     config_file_src_path: "{{ env_name }}-config.yaml"
     config_file_dest_path: "/home"
   tasks:
