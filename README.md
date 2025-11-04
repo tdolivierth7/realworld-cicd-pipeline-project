@@ -655,6 +655,8 @@ cd /opt/splunk/bin
     ![SlackResult!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/slack-first-notification-from-pipeline-job2.png)
 
     - SonarQube GateKeeper Webhook Payload
+        On the SonarQube UI, Click on `Administration` and click on `Configuration` and Select `Webhook`.
+        Click on the button under 'Last Delivery'.
     ![SonarQubeGateKeeper!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/sonarqube-webhook-forGateKepper-Result.png)
 
     ### B. Troubleshooting (Possible Issues You May Encounter and Suggested Solutions)
