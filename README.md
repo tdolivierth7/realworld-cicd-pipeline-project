@@ -629,7 +629,10 @@ cd /opt/splunk/bin
                 http://REPLACE-JENKINS-SERVER-PUBLIC-IP:8080/github-webhook/ 
                 (Note: The IP should be public as GitHub is outside of the AWS VPC where Jenkins server is hosted)
             Click on Add webhook
+                We do not need to change anything else.
+                Cintent Type * Should be kept with Default Value: application/x-www-form-urlencoded
 
+    - Back on the Jenkins Pipeline Configuration
     - Pipeline Definition: Select `Pipeline script from SCM`
       - SCM: `Git`
       - Repositories

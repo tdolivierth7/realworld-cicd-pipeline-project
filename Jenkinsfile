@@ -8,6 +8,9 @@ pipeline {
   environment {
     WORKSPACE = "${env.WORKSPACE}"
     NEXUS_CREDENTIAL_ID = 'Nexus-Credential'
+    MAVEN_OPTS = "-Dhttps.protocols=TLSv1.2"           // <<< ADDED (forces TLS 1.2 for all Maven invocations)
+    // MAVEN_OPTS = "-Dhttps.protocols=TLSv1.2 -Djava.net.preferIPv4Stack=true" // <<< OPTIONAL (uncomment if IPv6 causes issues)
+
     //NEXUS_USER = "$NEXUS_CREDS_USR"
     //NEXUS_PASSWORD = "$Nexus-Token"
     //NEXUS_URL = "172.31.18.62:8081"
