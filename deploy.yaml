@@ -14,5 +14,7 @@
         dest: "{{ dest_path }}"
         owner: ansibleadmin
         group: ansibleadmin
+        # owner: ansibleadmin
+        # group: ansibleadmin
         mode: 0644
 
