@@ -153,11 +153,12 @@
 ![PipelineEnvSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screenshot%202024-02-10%20at%202.17.03%E2%80%AFPM.png)
 
 12) Slack 
-    - Go to the bellow Workspace and create a Private Slack Channel and name it "yourfirstname-jenkins-cicd-pipeline-alerts"
+    - [If you are already part of this Workspace Skip to create a private channel. Do not click on the shared_invite link] Go to the bellow Workspace and create a Private Slack Channel and name it "yourfirstname-jenkins-cicd-pipeline-alerts"
     - Link: https://join.slack.com/t/globalelitecomputing/shared_invite/zt-3l1po832t-LeLYqxRapv0qERhdLvIZFw 
       - You can either join through the browser or your local Slack App
       - Create a `Private Channel` using the naming convention `YOUR_INITIAL-cicd-pipeline-alerts`
         - **NOTE:** *`(The Channel Name Must Be Unique, meaning it must be available for use)`*
+      - Click `Next`
       - Visibility: Select `Private`
       - Click on the `Channel Drop Down` and select `Integrations` and Click on `Add an App`
       - Search for `Jenkins` and Click on `View`
@@ -171,7 +172,7 @@
     #### NOTE: Update Your Jenkins file with your Slack Channel Name
     - Go back to your local, open your `Jenkins-Realworld-CICD-Project` repo/folder/directory on VSCODE
     - Open your `Jenkinsfile`
-    - Update the slack channel name on line `"133"` (there about)
+    - Update the slack channel name on line `"137"` (there about). You will find a paramater named: slackSend channel
     - Change the name from whatever that is there to your Slack Channel Name `YOUR_INITIAL-cicd-pipeline-alerts`
         - Bring up your `Terminal` (Depending on your machine type) and run the following commands
         - Add the changes to git: `git add -A`
