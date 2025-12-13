@@ -223,8 +223,7 @@
   - Perform the following operations on all of them
   - Install git: 
   - Install git by running: `sudo apt install git -y `
-            ### - Install git by running: `sudo yum install git -y ` ### 
-            ### - SonarQube VM: `sudo apt install git -y`
+
   - Clone repository: `git clone https://github.com/tdolivierth7/realworld-cicd-pipeline-project.git`
   - Change directory: `cd realworld-cicd-pipeline-project`
   - Swtitch branch: `git switch prometheus-and-grafana-install`
@@ -238,7 +237,7 @@
   - Exit
   ![NodeExporter!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%202.00.23%20PM.png)
 
-### Confirm That The Prometheus Service Disconvery Config Works As Expected
+### Confirm That The Prometheus Service Discovery Config Works As Expected
   - Open a TAB on your choice `Browser`
   - Copy the Prometheus `PublicIP Address` and paste on the `browser/tab` with port `9090` e.g `"PrometheusPublicIPAddres:9090"`
       - Once you get to the Prometheus Dashboard Click on `"Status"` and Click on `"Targets"`
@@ -314,7 +313,8 @@
 
     - **NOTE:** If You Do Not Complete This Part Your Splunk Configuration Won't Work
 - **IMPORTANT:** Navigate Back to your `Terminal` where you're `Configuring the Indexer`
-- **Restart Splunk** (For those changes to be captured): RUN the command `./splunk restart`
+- **Restart Splunk** (For those changes to be captured): RUN the command:
+`./splunk restart`
 ![SplunkSetup4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-07-02%20at%209.50.16%20PM.png)
 - Refresh The Splunk Tab at http://Splunk-Server-IP:8000 and *`log back into splunk`*
 - After `Logging In Back` into Splunk, Confirm that your Stat's Showing Green as shown in the screenshot below
@@ -350,7 +350,6 @@ cd /opt/splunkforwarder/bin
 - Set the forwarder to forward to the splunk server on port ``9997``, and will need to enter username and password (change IP address with your own server IP address). When prompted for username and password, enter what you set above for username and password.
 ```
 ./splunk add forward-server SPLUNK-SERVER-Private-IP-Address:9997
-## ./splunk add forward-server SPLUNK-SERVER-Public-IP-Address:9997 ##
 ```
 
 - Restart Splunk on the VM you are configuring the Forwarder
