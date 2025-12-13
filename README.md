@@ -154,7 +154,7 @@
 
 12) Slack 
     - Go to the bellow Workspace and create a Private Slack Channel and name it "yourfirstname-jenkins-cicd-pipeline-alerts"
-    - Link: https://join.slack.com/t/jjtechtowerba-zuj7343/shared_invite/zt-24mgawshy-EhixQsRyVuCo8UD~AbhQYQ  
+    - Link: https://join.slack.com/t/globalelitecomputing/shared_invite/zt-3l1po832t-LeLYqxRapv0qERhdLvIZFw 
       - You can either join through the browser or your local Slack App
       - Create a `Private Channel` using the naming convention `YOUR_INITIAL-cicd-pipeline-alerts`
         - **NOTE:** *`(The Channel Name Must Be Unique, meaning it must be available for use)`*
@@ -485,7 +485,7 @@ cd /opt/splunk/bin
 
       2)  ##### Slack secret token (slack-token)
           - ###### Get The Slack Token: 
-              - Slack: https://join.slack.com/t/jjtechtowerba-zuj7343/shared_invite/zt-24mgawshy-EhixQsRyVuCo8UD~AbhQYQ
+              - Slack: https://join.slack.com/t/globalelitecomputing/shared_invite/zt-3l1po832t-LeLYqxRapv0qERhdLvIZFw
               - Navigate to the Slack "Channel you created": `YOUR_INITIAL-cicd-pipeline-alerts`
               - Click on your `Channel Drop Down`
               - Click on `Integrations` and Click on `Add an App`
