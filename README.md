@@ -714,15 +714,18 @@ cd /opt/splunk/bin
         - Select Recipe: `maven2(group)` 
         - Name: `maven-project-group` 
         - Version Policy: Select `Mixed` 
-        - Member Repositories: Assign All The Repos You Created to The Group 
+        - Member Repositories: Assign All The Repos You Created to The Group:
           - **MEANING:** *Move all 3 repositories to the Box on your Right*
+          - `maven-project-releases` 
+          - `maven-project-snapshots` 
+          - `maven-project-central` 
         - Click `Create Repository`
 
     ![NexusSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%203.42.03%20PM.png) 
 
 ### Update Maven POM and Integrate/Configure Nexus With Jenkins
 A) Update Maven `POM.xml` file
-- Update the Following lines of Code ``(Line 32 and 36)`` in the maven `POM` file and save
+- Update the Following lines of Code ``(Line 32 and 36)`` in the maven `POM` file with the Private IP address of the Nexus Server and save
 ```bash
 <url>http://Nexus-Server-Private-IP:8081/repository/maven-project-snapshots/</url>
 
