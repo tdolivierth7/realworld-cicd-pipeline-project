@@ -630,7 +630,7 @@ cd /opt/splunk/bin
         You can find the Steps to add the Jenkins Webhook to GitHub below:
 
         - Adding jenkins webhook to github:
-        - Go to your GitHub Repository: 
+        - Go to your own GitHub Repository: 
             https://github.com/tdolivierth7/realworld-cicd-pipeline-project
         - Go to Settings --> Webhooks --> Click on Add webhook
         - Type your GitHub Password.
