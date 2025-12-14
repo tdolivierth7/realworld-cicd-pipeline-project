@@ -346,9 +346,14 @@ wget -O splunkforwarder-9.2.1-78803f08aabb-linux-2.6-amd64.deb "https://download
 - Install the Forwarder
 ```bash
 ls -al
+```    
+```bash
 sudo bash
-sudo apt-get install ./splunkforwarder-9.2.1-78803f08aabb-linux-2.6-amd64.deb -y
 ```
+```bash
+sudo apt-get install ./splunkforwarder-9.2.1-78803f08aabb-linux-2.6-amd64.deb -y
+```    
+
      # Ignore Message Below: 
      Download is performed unsandboxed as root as file '/home/ubuntu/realworld-cicd-pipeline-project/splunkforwarder-9.2.1-78803f08aabb-linux-2.6-amd64.deb' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)
 
