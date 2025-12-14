@@ -217,6 +217,13 @@
       - Stage-EnvPublicIPaddress:9100   (Confirm this page is accessible)
       - Prod-EnvPublicIPaddress:9100   (Confirm this page is accessible)
   - Exit
+  - Confirm the application 'Tomcat' has been installed successfully on the "Dev", "Stage" and "Prod" instances:
+  - Access the 'Tomcat' application running on port "8080", open your browser and run the below
+      - Dev-EnvPublicIPaddress:8080   (Confirm this page is accessible)
+      - Stage-EnvPublicIPaddress:8080   (Confirm this page is accessible)
+      - Prod-EnvPublicIPaddress:8080   (Confirm this page is accessible)
+  - Exit
+
 
 ### Configure The "Node Exporter" on the "Jenkins-Maven-Ansible", "Nexus" and "SonarQube" instances 
   - Login/SSH into the `"Jenkins-Maven-Ansible"`, `"Nexus"` and `"SonarQube"` VM instance
@@ -550,12 +557,14 @@ cd /opt/splunk/bin
             - Workspace: **Replace with `Team Subdomain` value** (created above)
             - Credentials: select the `Slack-Token` credentials (created above) 
             - Default channel / member id: `#PROVIDE_YOUR_CHANNEL_NAME_HERE`
-                Example: For Channel name 'cicd-project-alerts' add: #cicd-project-alerts
+            Example: For Channel name 'cicd-project-alerts' add: #cicd-project-alerts
             - Click on `Test Connection`. Ensure Test is Successful.
             - Click on `Save`
         ![SlackSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.31.12%20AM.png)
 
 ### SonarQube Configuration
+1)  ### Return to your SonarQube Server on your browser.
+    - Click on `Quality Gate` 
 2)  ### Setup SonarQube GateKeeper
     - Click on `Quality Gate` 
     - Click on `Create`
@@ -606,8 +615,8 @@ cd /opt/splunk/bin
 - Update The ``Jenkinsfile`` If Neccessary
 - Update `SonarQube IP address` in your `Jenkinsfile` On `Line 61`
 - Update the `SonarQube projectKey or name` in your `Jenkinsfile` On `Line 60`
-- Update your `Slack Channel Name` in the `Jenkinsfile` on `Line 133`
-- Update Your `Nexus IP` in the `Jenkinsfile` on `Line 80`
+- Update your `Slack Channel Name` in the `Jenkinsfile` on `Line 137`
+- Update Your `Nexus IP` in the `Jenkinsfile` on `Line 83` Under 'nexusUrl'
     
     - Log into Jenkins: http://Jenkins-Public-IP:8080/
     - Click on `New Item`
@@ -620,17 +629,17 @@ cd /opt/splunk/bin
       - NOTE: Make sure to also configure it on GitHub's side.
         You can find the Steps to add the Jenkins Webhook to GitHub below:
 
-            Adding jenkins webhook to github:
-            Go to your GitHub Repository: 
-                https://github.com/tdolivierth7/realworld-cicd-pipeline-project
-            Go to Settings --> Webhooks --> Click on Add webhook
-            Type your GitHub Password.
-            Payload URL: 
-                http://REPLACE-JENKINS-SERVER-PUBLIC-IP:8080/github-webhook/ 
-                (Note: The IP should be public as GitHub is outside of the AWS VPC where Jenkins server is hosted)
-            Click on Add webhook
-                We do not need to change anything else.
-                Cintent Type * Should be kept with Default Value: application/x-www-form-urlencoded
+        - Adding jenkins webhook to github:
+        - Go to your GitHub Repository: 
+            https://github.com/tdolivierth7/realworld-cicd-pipeline-project
+        - Go to Settings --> Webhooks --> Click on Add webhook
+        - Type your GitHub Password.
+        - Payload URL: 
+            http://REPLACE-JENKINS-SERVER-PUBLIC-IP:8080/github-webhook/ 
+            (Note: The IP should be public as GitHub is outside of the AWS VPC where Jenkins server is hosted)
+        - Click on Add webhook
+            We do not need to change anything else.
+            Cintent Type * Should be kept with Default Value: application/x-www-form-urlencoded
 
     - Back on the Jenkins Pipeline Configuration
     - Pipeline Definition: Select `Pipeline script from SCM`
