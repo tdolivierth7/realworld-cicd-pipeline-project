@@ -326,7 +326,9 @@
     - **NOTE:** If You Do Not Complete This Part Your Splunk Configuration Won't Work
 - **IMPORTANT:** Navigate Back to your `Terminal` where you're `Configuring the Indexer`
 - **Restart Splunk** (For those changes to be captured): RUN the command:
-    `./splunk restart`
+```
+./splunk restart
+```
 ![SplunkSetup4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-07-02%20at%209.50.16%20PM.png)
 - Refresh The Splunk Tab at http://Splunk-Server-IP:8000 and *`log back into splunk`*
 - After `Logging In Back` into Splunk, Confirm that your Stat's Showing Green as shown in the screenshot below
