@@ -362,8 +362,12 @@ sudo apt-get install ./splunkforwarder-9.2.1-78803f08aabb-linux-2.6-amd64.deb -y
 - Set the port for the forwarder to ``9997``, this is to keep splunk server from conflicting with the splunk forwarder
 ```bash
 sudo bash
+```
+```bash
 cd /opt/splunkforwarder/bin
-./splunk start --accept-license --answer-yes
+```
+```bash
+cd /opt/splunkforwarder/bin
 ```
 
 - Set the forwarder to forward to the splunk server on port ``9997``, and will need to enter username and password (change IP address with your own server IP address). When prompted for username and password, enter what you set above for username and password.
@@ -385,10 +389,12 @@ cd /opt/splunkforwarder/bin
 - Set the port for the Splunk Indexer or Server to listen on 9997 and restart
 ```bash
 cd /opt/splunk/bin
+```
+```bash
 ./splunk enable listen 9997
 ```
 - Restart Splunk on the VM you are configuring the Forwarder
-```
+```bash
 ./splunk restart
 ```
 
