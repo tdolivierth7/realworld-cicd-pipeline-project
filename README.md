@@ -393,10 +393,6 @@ cd /opt/splunk/bin
 ```bash
 ./splunk enable listen 9997
 ```
-- Restart Splunk on the VM you are configuring the Forwarder
-```bash
-./splunk restart
-```
 
 #### Step 3: View Application Logs in Splunk
 - Login to your `Splunk Server` at http://Splunk-Server-IP:8000
@@ -493,7 +489,7 @@ cd /opt/splunk/bin
                 - Project key: `JavaWebApp-Project`
                 - Display name: `JavaWebApp-Project`
               - Click on `Set Up`
-              - Generate a Tokens: Provide Name ``JavaWebApp-SonarQube-Token``
+              - Generate a Token: Provide Name ``JavaWebApp-SonarQube-Token``
               - Click on `Generate`
               - Click on `Continue`
               - Run analysis on your project: Select `Java`
@@ -597,7 +593,7 @@ cd /opt/splunk/bin
         Operator (Is greater than) - Value: 10
     ![SonarQubeSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.02.36%20AM.png)
     
-    - Add Quality to SonarQube Project
+    - Add Quality Gate to SonarQube Project
     -  ``NOTE:`` Make sure to update the `SonarQube` stage in your `Jenkinsfile` and Test the Pipeline so your project will be visible on the SonarQube Project Dashboard.
     - Click on `Projects` 
     - Click on your project name `JavaWebApp-Project` 
@@ -644,7 +640,7 @@ cd /opt/splunk/bin
     - Select GitHub project: Project url `Provide Your Project Repo Git URL`
         Example: https://github.com/tdolivierth7/realworld-cicd-pipeline-project.git
     - Under `Triggers` Select the box: `GitHub hook trigger for GITScm polling`
-      - NOTE: Make sure to also configure it on GitHub's side.
+      - NOTE: Make sure to also configure the Webhook on GitHub's side.
         You can find the Steps to add the Jenkins Webhook to GitHub below:
 
         - Adding jenkins webhook to github:
@@ -657,7 +653,7 @@ cd /opt/splunk/bin
             (Note: The IP should be public as GitHub is outside of the AWS VPC where Jenkins server is hosted)
         - Click on Add webhook
             We do not need to change anything else.
-            Cintent Type * Should be kept with Default Value: application/x-www-form-urlencoded
+            Content Type * Should be kept with Default Value: application/x-www-form-urlencoded
 
     - Back on the Jenkins Pipeline Configuration
     - Pipeline Definition: Select `Pipeline script from SCM`
